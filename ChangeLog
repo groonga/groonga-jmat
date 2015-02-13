@@ -1,0 +1,17 @@
+2013-10-08  TAKAOKA Kazuma  <kazuma.takaoka@justsystems.com>
+
+	* fix bug: JEMA tokenizer shows wrong error messages
+
+2013-02-22  TAKAOKA Kazuma  <kazuma.takaoka@justsystems.com>
+
+	* add "[jema]" and "[jetmctrl]" tag to messages
+
+	* JEMA tokenizer avoids re-tokenizing expanded queries by JETMCtrl
+
+2013-01-25  TAKAOKA Kazuma  <kazuma.takaoka@justsystems.com>
+
+	* for JMAT 1.0.4
+
+2012-10-04  TAKAOKA Kazuma  <kazuma.takaoka@justsystems.com>
+
+	* rewrite for groonga-2.0.7.

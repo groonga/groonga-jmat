@@ -1,0 +1,79 @@
+JMAT groonga プラグイン
+=======================
+
+このパッケージは以下の2つのプラグインからなります。
+
+ * jema プラグイン (トークナイザ TokenJEMA を提供)
+ * jetmctrl プラグイン (クエリー拡張 QueryExpanderJETM を提供)
+
+
+jema プラグイン
+---------------
+
+トークナイザとして TokenJEMA と確認用の jema コマンドを提供します。
+デフォルトではプロパティファイル /usr/local/etc/jmat.prop を参照して辞
+書やパラメータを設定します。
+プロパティファイルはコンパイル時に -DJMAT_PROPFILE を設定することで変
+更できます。configure の実行時に pkg-config を利用して設定されます。
+
+トークナイザに JMAT を利用するには tokenizers/jema プラグインを
+ロードする必要があります。
+
+  register tokenizers/jema
+
+トークナイザに JMAT を利用する場合は TokenJEMA を指定します。
+指定方法は groonga のドキュメントを参照してください。
+
+コマンドでトークナイズ結果を確認することもできます。
+以下の書式で実行すると、トークナイズ結果を出力します。
+
+ jema --text 文字列
+
+
+jetmctrl プラグイン
+-------------------
+
+クエリー拡張 QueryExpanderJETM と確認用の jetm コマンドを提供します。
+デフォルトではプロパティファイル /usr/local/etc/jmat.prop を参照して辞
+書やパラメータを設定します。
+プロパティファイルはコンパイル時に -DJMAT_PROPFILE を設定することで変
+更できます。configure の実行時に pkg-config を利用して設定されます。
+
+クエリー拡張に JMAT を利用するには tokenizers/jema と
+query_expanders/jetmctrl プラグインをロードする必要があります。
+
+  register query_expanders/jetmctrl
+  register tokenizers/jema
+
+クエリ拡張に JMAT を利用する場合は QueryExpanderJETM を指定します。
+指定方法は groonga のドキュメントを参照してください。
+
+コマンドでクエリー拡張結果を確認することもできます。
+以下の書式で実行すると、クエリー拡張結果を出力します。
+
+ jetm --query クエリー文字列
+
+
+ビルド方法
+----------
+
+1) groonga のインストール
+
+groonga をインストールします。groonga-2.0.10 以上に対応しています。
+
+2) JMAT のインストール
+
+別パッケージの JMAT をインストールします。ライブラリー、ヘッダーファイ
+ル、辞書、プロパティファイル、pkg-config 用 pc ファイルがインストール
+されます。
+
+2) プラグインのビルド
+
+configure の実行後、ビルド、インストールします。groonga および JMAT の
+パスは configure 実行時に pkg-config を利用して設定されます。
+
+ $ configure && make
+ # make install
+
+-- 
+JustSystems Corporation, Apr 15 2013.
